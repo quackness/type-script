@@ -20,24 +20,48 @@
 // d = "Hello" as any
 
 //interface
-interface Contact extends Address {
+// interface Contact extends Address {
+//   id: number,
+//   name: string,
+//   birthDate?: Date;
+// }
+
+// interface Address {
+//   line1?: string,
+//   line2?: string,
+//   province?: string,
+//   region?: string,
+//   postalCode?: string
+// }
+
+// let primaryContact: Contact = {
+//   // birthDate: new Date("01-01-1980"),
+//   id: 12345,
+//   name: "jamie johnson",
+//   postalCode: "123"
+// }
+
+//alias
+interface Contact {
   id: number,
-  name: string,
+  name: ContactName,
   birthDate?: Date;
+  status: ContactStatus;
 }
 
-interface Address {
-  line1?: string,
-  line2?: string,
-  province?: string,
-  region?: string,
-  postalCode?: string
+enum ContactStatus {
+  Active = "active",
+  Inactive = "inactive",
+  New = "new"
 }
+
 
 let primaryContact: Contact = {
-  // birthDate: new Date("01-01-1980"),
+  birthDate: new Date("01-01-1980"),
   id: 12345,
   name: "jamie johnson",
-  postalCode: "123"
+  status: ContactStatus.Active,
 }
+
+type ContactName = string
 
